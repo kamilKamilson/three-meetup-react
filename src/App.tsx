@@ -7,6 +7,6 @@ import { MeetupAnimationExample } from "./examples/MeetupAnimationExample/Meetup
 export const App = () => <>
   {/* <BasicScene /> */}
   {/* <TriangleExample /> */}
-  {/* <VazcoExample /> */}
-  <MeetupAnimationExample />
+  <VazcoExample />
+  {/* <MeetupAnimationExample /> */}
 </>
