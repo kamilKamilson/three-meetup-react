@@ -1,11 +1,25 @@
 import { Canvas } from "@react-three/fiber";
+import { MeshBasicMaterial } from "three";
 
-export const BasicScene = () => <Canvas style={{ width: '100vw', height: '100vh' }} camera={{ position: [0, 0, 3] }} onCreated={(state) => {
-  state.gl.setClearColor(0x000000)
-}}>
-  <mesh>z
+const material = new MeshBasicMaterial({ color: 0xffffff });
+
+const Box = () => (
+  <mesh material={material} position={[3, 0, 0]} >
     <boxGeometry args={[1, 1, 1]} />
-    <meshBasicMaterial color='#ff0000' />
-    <shaderMaterial />
   </mesh>
-</Canvas> 
+);
+
+const Sphere = () => (
+  <mesh material={material} position={[-3, 0, 0]}>
+    <sphereGeometry args={[0.5, 32, 16]} />
+  </mesh>
+);
+
+export const BasicScene = () => (
+  <Canvas onCreated={({ gl }) => gl.setClearColor(0x02142d)}>
+    <group>
+      <Box />
+      <Sphere />
+    </group>
+  </Canvas>
+);

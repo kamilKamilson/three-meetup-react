@@ -24,10 +24,10 @@ type GLTFResult = GLTF & {
 export function ReactMeetupDwarf(props: JSX.IntrinsicElements['group']) {
   const { nodes } = useGLTF('/react-meetup-dwarf.gltf') as GLTFResult
   const [active, setActive] = useState(false)
-  const { scale, rotateY } = useSpring({ scale: active ? 70 : 50, rotateY: active ? Math.PI * 0.25 : 0 })
+  const { rotateY } = useSpring({ rotateY: active ? Math.PI * 0.25 : 0 })
 
   return (
-    <animated.group {...props} dispose={null} scale={scale} rotation-y={rotateY} onClick={() => setActive(prevVal => !prevVal)} rotation-x={Math.PI * 0.5}>
+    <animated.group {...props} dispose={null} scale={50} rotation-y={rotateY} onClick={() => setActive(prevVal => !prevVal)} rotation-x={Math.PI * 0.5}>
       <mesh geometry={nodes.Curve004.geometry}  >
         <meshStandardMaterial color={0xffffff} />
       </mesh>
